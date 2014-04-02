@@ -29,6 +29,7 @@ public class Bank {
 					str = s.nextLine().split(" ");
 					int accNum = Integer.parseInt(str[0]);
 					double balance = Double.parseDouble(str[1]);
+					//reentrant
 				}
 				break;
 			case 2:
@@ -36,6 +37,7 @@ public class Bank {
 					str = s.nextLine().split(" ");
 					int accNum = Integer.parseInt(str[0]);
 					double balance = Double.parseDouble(str[1]);
+					// blocking
 				}
 				break;
 			default:

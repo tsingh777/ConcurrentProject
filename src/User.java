@@ -1,4 +1,3 @@
-import java.io.File;
 
 public class User implements Runnable{
 	private BankAccount acc;
@@ -26,6 +25,6 @@ public class User implements Runnable{
 	}
 
 	public void transfer(int accNum, double amount){
-		
+		//transfer
 	}
 }
