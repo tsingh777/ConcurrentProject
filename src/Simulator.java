@@ -1,3 +1,4 @@
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 
@@ -5,7 +6,8 @@ import java.io.PrintWriter;
 public class Simulator {
 
 	public static void main(String[] args) {
-	
+		Bank bank = new Bank(new File("accounts.txt"), 0);
+		System.out.println(bank.getAccounts());
 	}
 	
 	public void createAccounts(){
