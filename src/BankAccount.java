@@ -10,9 +10,9 @@ public abstract class BankAccount {
 		this.balance = avalibleAmount;
 	}
 	
-	public BankAccount(double avalibleAmount, int accountNumber) {
-		this.balance = avalibleAmount;
+	public BankAccount(int accountNumber, double avalibleAmount) {
 		this.accountNumber = accountNumber;
+		this.balance = avalibleAmount;
 	}
 
 	/**

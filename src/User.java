@@ -1,13 +1,10 @@
 import java.io.File;
 
 public class User implements Runnable{
-	//BankAccount bank;
+	private BankAccount acc;
 
-	// File transaction; //maybe have file with a set of transaction that can be
-	// read?
-
-	public User() {
-	//	this.bank = new BankAccount();
+	public User(BankAccount acc) {
+		this.acc = acc;
 	}
 
 	@Override
@@ -15,5 +12,20 @@ public class User implements Runnable{
 		// TODO Auto-generated method stub
 		
 	}
+	
+	public void viewBalance(){
+		acc.getBalance();
+	}
+	
+	public void deposit(double amount){
+		acc.deposit(amount);
+	}
+	
+	public void withdraw(double amount){
+		acc.withdraw(amount);
+	}
 
+	public void transfer(int accNum, double amount){
+		
+	}
 }
