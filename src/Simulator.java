@@ -5,7 +5,10 @@ import java.io.PrintWriter;
 public class Simulator {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+	
+	}
+	
+	public void createAccounts(){
 		try {
 			PrintWriter pw = new PrintWriter("accounts.txt");
 			for(int i=0; i<10; i++){
@@ -18,7 +21,6 @@ public class Simulator {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
 	}
 
 }
