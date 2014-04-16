@@ -6,13 +6,13 @@ public class SemaphoreAccount extends BankAccount {
 	Semaphore sempahore = new Semaphore(1);
 	
 	
-	public SemaphoreAccount(int accountNum, double balance) {
+	public SemaphoreAccount(int accountNum, long balance) {
 		super(accountNum, balance);
 	}
 
  
 	@Override
-	public void deposit(double amount) {
+	public void deposit(long amount) {
 		try{
 		//	System.out.println("P()");
 			this.sempahore.acquire();
@@ -29,8 +29,8 @@ public class SemaphoreAccount extends BankAccount {
 
 
 	@Override
-	public double withdraw(double amount) {
-		double result =0;
+	public long withdraw(long amount) {
+		long result =0;
 		try{
 		//	System.out.println("P()");
 			this.sempahore.acquire();;
@@ -48,8 +48,8 @@ public class SemaphoreAccount extends BankAccount {
 
 
 	@Override
-	public double getBalance() {
-		double result =0;
+	public long getBalance() {
+		long result =0;
 		try{
 			//System.out.println("P()");
 			this.sempahore.acquire();
