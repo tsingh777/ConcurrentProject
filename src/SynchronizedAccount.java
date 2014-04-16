@@ -12,4 +12,12 @@ public class SynchronizedAccount extends BankAccount {
 	public synchronized double withdraw(double amount) {
 		return super.withdraw(amount);
 	}
+	
+	public synchronized double getBalance() {
+		return super.getBalance();
+	}
+
+	public synchronized void setbalance(double avalibleAmount) {
+		super.setbalance(avalibleAmount);
+	}
 }
