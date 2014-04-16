@@ -1,8 +1,10 @@
 
 public class User implements Runnable{
+	private Bank bank;
 	private BankAccount acc;
 
-	public User(BankAccount acc) {
+	public User(Bank bank, BankAccount acc) {
+		this.bank = bank;
 		this.acc = acc;
 	}
 
@@ -13,18 +15,18 @@ public class User implements Runnable{
 	}
 	
 	public void viewBalance(){
-		acc.getBalance();
+		bank.getBalance(acc);
 	}
 	
 	public void deposit(double amount){
-		acc.deposit(amount);
+		bank.deposit(acc, amount);
 	}
 	
 	public void withdraw(double amount){
-		acc.withdraw(amount);
+		bank.withdraw(acc, amount);
 	}
 
 	public void transfer(int accNum, double amount){
-		//transfer
+		bank.transfer(acc, accNum, amount);
 	}
 }
