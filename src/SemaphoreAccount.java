@@ -6,11 +6,11 @@ public class SemaphoreAccount extends BankAccount {
 	Semaphore sempahore = new Semaphore(1);
 	
 	
-	public SemaphoreAccount(int accNum, double balance) {
-		super(accNum, balance);
+	public SemaphoreAccount(int accountNum, double balance) {
+		super(accountNum, balance);
 	}
 
-
+ 
 	@Override
 	public void deposit(double amount) {
 		try{
