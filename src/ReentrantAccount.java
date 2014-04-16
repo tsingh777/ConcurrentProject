@@ -14,8 +14,7 @@ public class ReentrantAccount extends BankAccount {
 	}
 	
 	public ReentrantAccount(double balance, int accountNumber) {
-		this.balance = balance;
-		this.accountNumber = accountNumber;
+		super(accountNumber, balance);
 	}
 	
 	public void deposit(double amount) {
