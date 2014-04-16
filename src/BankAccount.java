@@ -16,7 +16,7 @@ public abstract class BankAccount {
 	}
 
 	/**
-	 * add to the amount avalible
+	 * add to the amount available
 	 * 
 	 * @param amount
 	 */
@@ -25,7 +25,7 @@ public abstract class BankAccount {
 	}
 
 	/**
-	 * remove from amount avalible
+	 * remove from amount available
 	 * 
 	 * @param amount
 	 * @return avalibleAmount after withdraw
@@ -40,7 +40,7 @@ public abstract class BankAccount {
 	}
 
 	/**
-	 * @return the balace
+	 * @return the balance
 	 */
 	public double getBalance() {
 		return balance;
