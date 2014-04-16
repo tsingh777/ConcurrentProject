@@ -10,8 +10,21 @@ public class User implements Runnable{
 
 	@Override
 	public void run() {
-		// TODO Auto-generated method stub
-		
+		switch((int)(Math.random()*4)){
+		case 0:
+			viewBalance();
+			break;
+		case 1:
+			deposit(100);
+			break;
+		case 2:
+			withdraw(100);
+			break;
+		case 3:
+			transfer((int)(Math.random()*9),100);
+		default:
+			break;
+		}
 	}
 	
 	public void viewBalance(){
