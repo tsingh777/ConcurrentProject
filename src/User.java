@@ -19,15 +19,15 @@ public class User implements Runnable {
 		bank.getBalance(acc);
 	}
 
-	public void deposit(double amount) {
+	public void deposit(long amount) {
 		bank.deposit(acc, amount);
 	}
 
-	public void withdraw(double amount) {
+	public void withdraw(long amount) {
 		bank.withdraw(acc, amount);
 	}
 
-	public void transfer(int accNum, double amount) {
+	public void transfer(int accNum, long amount) {
 		bank.transfer(acc, accNum, amount);
 	}
 }

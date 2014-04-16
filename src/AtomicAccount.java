@@ -3,24 +3,24 @@ import java.util.concurrent.atomic.AtomicLong;
 public class AtomicAccount extends BankAccount {
 	private AtomicLong balance = new AtomicLong();
 
-	public AtomicAccount(int accountNumber, double avalibleAmount) {
+	public AtomicAccount(int accountNumber, long avalibleAmount) {
 		super(accountNumber, avalibleAmount);
-		balance.set((long) avalibleAmount);
+		balance.set(avalibleAmount);
 	}
 	
-	public void deposit(double amount) {
-		balance.getAndSet(balance.get() - (long)amount);
+	public void deposit(long amount) {
+		balance.getAndAdd((long)amount);
 	}
 	
-	public double withdraw(double amount) {
+	public long withdraw(long amount) {
 		return super.withdraw(amount);
 	}
 	
-	public double getBalance() {
+	public long getBalance() {
 		return super.getBalance();
 	}
 
-	public void setbalance(double avalibleAmount) {
+	public void setbalance(long avalibleAmount) {
 		super.setbalance(avalibleAmount);
 	}
 

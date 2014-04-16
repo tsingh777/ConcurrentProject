@@ -1,23 +1,23 @@
 
 public class SynchronizedAccount extends BankAccount {
 
-	public SynchronizedAccount(int accountNumber, double avalibleAmount) {
+	public SynchronizedAccount(int accountNumber, long avalibleAmount) {
 		super(accountNumber, avalibleAmount);
 	}
 
-	public synchronized void deposit(double amount) {
+	public synchronized void deposit(long amount) {
 		super.deposit(amount);
 	}
 	
-	public synchronized double withdraw(double amount) {
+	public synchronized long withdraw(long amount) {
 		return super.withdraw(amount);
 	}
 	
-	public synchronized double getBalance() {
+	public synchronized long getBalance() {
 		return super.getBalance();
 	}
 
-	public synchronized void setbalance(double avalibleAmount) {
+	public synchronized void setbalance(long avalibleAmount) {
 		super.setbalance(avalibleAmount);
 	}
 }

@@ -5,12 +5,12 @@ import java.util.concurrent.locks.ReentrantLock;
 public class ReentrantAccount extends BankAccount {
 	private final Lock lock;
 	
-	public ReentrantAccount(double balance, int accountNumber) {
+	public ReentrantAccount(long balance, int accountNumber) {
 		super(accountNumber, balance);
 		lock = new ReentrantLock();
 	}
 	
-	public void deposit(double amount) {
+	public void deposit(long amount) {
 		lock.lock();
 		try {
 			super.deposit(amount);
@@ -20,7 +20,7 @@ public class ReentrantAccount extends BankAccount {
 		}
 	}
 	
-	public double withdraw(double amount) {
+	public long withdraw(long amount) {
 		lock.lock();
 		try {
 			return super.withdraw(amount);
@@ -30,7 +30,7 @@ public class ReentrantAccount extends BankAccount {
 		}
 	}
 	
-	public double getBalance() {
+	public long getBalance() {
 		lock.lock();
 		try {
 			return super.getBalance();
@@ -40,7 +40,7 @@ public class ReentrantAccount extends BankAccount {
 		}
 	}
 
-	public void setbalance(double avalibleAmount) {
+	public void setbalance(long avalibleAmount) {
 		lock.lock();
 		try {
 			super.setbalance(avalibleAmount);

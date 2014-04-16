@@ -23,7 +23,7 @@ public class Bank {
 				while (s.hasNext()) {
 					str = s.nextLine().split(" ");
 					int accNum = Integer.parseInt(str[0]);
-					double balance = Double.parseDouble(str[1]);
+					long balance = (long)Double.parseDouble(str[1]);
 					BankAccount acc = new SynchronizedAccount(accNum, balance);
 					accounts.put(accNum, acc);
 					users.add(new User(this, acc));
@@ -33,7 +33,7 @@ public class Bank {
 				while (s.hasNext()) {
 					str = s.nextLine().split(" ");
 					int accNum = Integer.parseInt(str[0]);
-					double balance = Double.parseDouble(str[1]);
+					long balance = (long)Double.parseDouble(str[1]);
 					// reentrant
 				}
 				break;
@@ -41,7 +41,7 @@ public class Bank {
 				while (s.hasNext()) {
 					str = s.nextLine().split(" ");
 					int accNum = Integer.parseInt(str[0]);
-					double balance = Double.parseDouble(str[1]);
+					long balance = (long)Double.parseDouble(str[1]);
 					// blocking
 				}
 				break;
@@ -81,15 +81,15 @@ public class Bank {
 		System.out.println((accounts.get(acc.getAccountNumber())).getBalance());
 	}
 
-	public void deposit(BankAccount acc, double amount) {
+	public void deposit(BankAccount acc, long amount) {
 		accounts.get(acc.getAccountNumber()).deposit(amount);
 	}
 
-	public void withdraw(BankAccount acc, double amount) {
+	public void withdraw(BankAccount acc, long amount) {
 		accounts.get(acc.getAccountNumber()).withdraw(amount);
 	}
 
-	public synchronized void transfer(BankAccount acc, int accNum, double amount) {
+	public synchronized void transfer(BankAccount acc, int accNum, long amount) {
 		accounts.get(acc.getAccountNumber()).withdraw(amount);
 		accounts.get(accNum).deposit(amount);
 	}

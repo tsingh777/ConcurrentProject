@@ -1,8 +1,8 @@
 public abstract class BankAccount {
-	private double balance;
+	private long balance;
 	private final int accountNumber;
 
-	public BankAccount(int accountNumber, double avalibleAmount) {
+	public BankAccount(int accountNumber, long avalibleAmount) {
 		this.accountNumber = accountNumber;
 		this.balance = avalibleAmount;
 	}
@@ -12,7 +12,7 @@ public abstract class BankAccount {
 	 * 
 	 * @param amount
 	 */
-	public void deposit(double amount) {
+	public void deposit(long amount) {
 		this.balance += amount;
 	}
 
@@ -22,7 +22,7 @@ public abstract class BankAccount {
 	 * @param amount
 	 * @return avalibleAmount after withdraw
 	 */
-	public double withdraw(double amount) {
+	public long withdraw(long amount) {
 		if (amount > this.balance) {
 			return 0;
 		} else {
@@ -34,7 +34,7 @@ public abstract class BankAccount {
 	/**
 	 * @return the balance
 	 */
-	public double getBalance() {
+	public long getBalance() {
 		return balance;
 	}
 
@@ -42,7 +42,7 @@ public abstract class BankAccount {
 	 * @param avalibleAmount
 	 *            the avalibleAmount to set
 	 */
-	public void setbalance(double avalibleAmount) {
+	public void setbalance(long avalibleAmount) {
 		this.balance = avalibleAmount;
 	}
 
