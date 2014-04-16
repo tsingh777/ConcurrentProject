@@ -30,7 +30,7 @@ public class SemaphoreAccount extends BankAccount {
 
 	@Override
 	public long withdraw(long amount) {
-		long result =0;
+		long result = -1;
 		try{
 		//	System.out.println("P()");
 			this.sempahore.acquire();;
@@ -49,7 +49,7 @@ public class SemaphoreAccount extends BankAccount {
 
 	@Override
 	public long getBalance() {
-		long result =0;
+		long result = -1;
 		try{
 			//System.out.println("P()");
 			this.sempahore.acquire();
