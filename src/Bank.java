@@ -1,5 +1,6 @@
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -9,12 +10,14 @@ import java.util.Scanner;
 public class Bank {
 
 	private Map<Integer, BankAccount> accounts;
-	
+	private List<User> users;
+
 	public Bank(File file, int arg) {
 		Scanner s; 
 		try{
 			s = new Scanner(file);
 			accounts = new HashMap<Integer, BankAccount>();
+			users = new ArrayList<User>();
 			String[] str;
 			switch (arg) {
 			case 0:
@@ -22,7 +25,9 @@ public class Bank {
 					str = s.nextLine().split(" ");
 					int accNum = Integer.parseInt(str[0]);
 					double balance = Double.parseDouble(str[1]);
-					accounts.put(accNum, new SemaphoreAccount(accNum,  balance));
+					BankAccount acc =  new SemaphoreAccount(accNum,  balance);
+					accounts.put(accNum, acc);
+					users.add(new User(this, acc));
 				}
 				break;
 			case 1:
@@ -62,6 +67,14 @@ public class Bank {
 	 */
 	public void setAccounts(Map<Integer, BankAccount> accounts) {
 		this.accounts = accounts;
+	}
+	
+	public List<User> getUsers() {
+		return users;
+	}
+
+	public void setUsers(List<User> users) {
+		this.users = users;
 	}
 
 	public void getBalance(BankAccount acc) {
