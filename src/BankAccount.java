@@ -1,15 +1,7 @@
 public abstract class BankAccount {
 	private double balance;
-	private int accountNumber;
+	private final int accountNumber;
 
-	public BankAccount() {
-		this.balance = 4000.00;// start with 4000?
-	}
-
-	public BankAccount(double avalibleAmount) {
-		this.balance = avalibleAmount;
-	}
-	
 	public BankAccount(int accountNumber, double avalibleAmount) {
 		this.accountNumber = accountNumber;
 		this.balance = avalibleAmount;
@@ -59,13 +51,6 @@ public abstract class BankAccount {
 	 */
 	public int getAccountNumber() {
 		return accountNumber;
-	}
-
-	/**
-	 * @param accountNumber the accountNumber to set
-	 */
-	public void setAccountNumber(int accountNumber) {
-		this.accountNumber = accountNumber;
 	}
 
 }

@@ -89,7 +89,7 @@ public class Bank {
 		accounts.get(acc.getAccountNumber()).withdraw(amount);
 	}
 
-	public void transfer(BankAccount acc, int accNum, double amount) {
+	public synchronized void transfer(BankAccount acc, int accNum, double amount) {
 		accounts.get(acc.getAccountNumber()).withdraw(amount);
 		accounts.get(accNum).deposit(amount);
 	}
