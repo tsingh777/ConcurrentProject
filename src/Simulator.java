@@ -10,7 +10,7 @@ public class Simulator {
 	public static void main(String[] args) {
 		Bank bank = new Bank(new File("accounts.txt"), 0);
 		List<User> users = bank.getUsers();
-		ExecutorService executor = Executors.newFixedThreadPool(5);
+		ExecutorService executor = Executors.newFixedThreadPool(16);
 		for (User user : users) {
 			executor.execute(user);
 		}

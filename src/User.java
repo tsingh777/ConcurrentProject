@@ -1,5 +1,4 @@
-
-public class User implements Runnable{
+public class User implements Runnable {
 	private Bank bank;
 	private BankAccount acc;
 
@@ -10,36 +9,48 @@ public class User implements Runnable{
 
 	@Override
 	public void run() {
-		switch((int)(Math.random()*4)){
-		case 0:
-			viewBalance();
-			break;
-		case 1:
-			deposit(100);
-			break;
-		case 2:
-			withdraw(100);
-			break;
-		case 3:
-			transfer((int)(Math.random()*9),100);
-		default:
-			break;
+		int count = 0;
+		while (count < 100000) {
+			switch ((int) (Math.random() * 4)) {
+			case 0:
+				viewBalance();
+				break;
+			case 1:
+				deposit(100);
+				viewBalance();
+				break;
+			case 2:
+				withdraw(100);
+				viewBalance();
+				break;
+			case 3:
+				int accNum = acc.getAccountNumber();
+				if(accNum == 9){
+					accNum = 0;
+				}
+				transfer(accNum, 100);
+				viewBalance();
+				break;
+			default:
+				break;
+			}
+			count++;
 		}
 	}
-	
-	public void viewBalance(){
+
+	public void viewBalance() {
 		bank.getBalance(acc);
 	}
-	
-	public void deposit(double amount){
+
+	public void deposit(double amount) {
 		bank.deposit(acc, amount);
 	}
-	
-	public void withdraw(double amount){
+
+	public void withdraw(double amount) {
 		bank.withdraw(acc, amount);
 	}
 
-	public void transfer(int accNum, double amount){
+	public void transfer(int accNum, double amount) {
 		bank.transfer(acc, accNum, amount);
 	}
 }

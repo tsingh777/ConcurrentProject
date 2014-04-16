@@ -6,40 +6,39 @@ import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
-
 public class Bank {
 
 	private Map<Integer, BankAccount> accounts;
 	private List<User> users;
 
 	public Bank(File file, int arg) {
-		Scanner s; 
-		try{
+		Scanner s;
+		try {
 			s = new Scanner(file);
 			accounts = new HashMap<Integer, BankAccount>();
 			users = new ArrayList<User>();
 			String[] str;
 			switch (arg) {
 			case 0:
-				while(s.hasNext()){
+				while (s.hasNext()) {
 					str = s.nextLine().split(" ");
 					int accNum = Integer.parseInt(str[0]);
 					double balance = Double.parseDouble(str[1]);
-					BankAccount acc =  new SemaphoreAccount(accNum,  balance);
+					BankAccount acc = new SemaphoreAccount(accNum, balance);
 					accounts.put(accNum, acc);
 					users.add(new User(this, acc));
 				}
 				break;
 			case 1:
-				while(s.hasNext()){
+				while (s.hasNext()) {
 					str = s.nextLine().split(" ");
 					int accNum = Integer.parseInt(str[0]);
 					double balance = Double.parseDouble(str[1]);
-					//reentrant
+					// reentrant
 				}
 				break;
 			case 2:
-				while(s.hasNext()){
+				while (s.hasNext()) {
 					str = s.nextLine().split(" ");
 					int accNum = Integer.parseInt(str[0]);
 					double balance = Double.parseDouble(str[1]);
@@ -50,8 +49,8 @@ public class Bank {
 				break;
 			}
 			s.close();
-		}catch(IOException e) {
-			
+		} catch (IOException e) {
+
 		}
 	}
 
@@ -63,12 +62,13 @@ public class Bank {
 	}
 
 	/**
-	 * @param accounts the accounts to set
+	 * @param accounts
+	 *            the accounts to set
 	 */
 	public void setAccounts(Map<Integer, BankAccount> accounts) {
 		this.accounts = accounts;
 	}
-	
+
 	public List<User> getUsers() {
 		return users;
 	}
@@ -78,7 +78,7 @@ public class Bank {
 	}
 
 	public void getBalance(BankAccount acc) {
-		accounts.get(acc.getAccountNumber()).getBalance();		
+		System.out.println((accounts.get(acc.getAccountNumber())).getBalance());
 	}
 
 	public void deposit(BankAccount acc, double amount) {
