@@ -13,48 +13,21 @@ public class User implements Runnable {
 			transfer(1,1);
 		else
 			withdraw(1);
-//		int count = 0;
-//		while (count < 100000) {
-//			switch ((int) (Math.random() * 4)) {
-//			case 0:
-//				viewBalance();
-//				break;
-//			case 1:
-//				deposit(100);
-//				viewBalance();
-//				break;
-//			case 2:
-//				withdraw(100);
-//				viewBalance();
-//				break;
-//			case 3:
-//				int accNum = acc.getAccountNumber();
-//				if(accNum == 9){
-//					accNum = 0;
-//				}
-//				transfer(accNum, 100);
-//				viewBalance();
-//				break;
-//			default:
-//				break;
-//			}
-//			count++;
-//		}
 	}
 
 	public void viewBalance() {
 		bank.getBalance(acc);
 	}
 
-	public void deposit(double amount) {
+	public void deposit(long amount) {
 		bank.deposit(acc, amount);
 	}
 
-	public void withdraw(double amount) {
+	public void withdraw(long amount) {
 		bank.withdraw(acc, amount);
 	}
 
-	public void transfer(int accNum, double amount) {
+	public void transfer(int accNum, long amount) {
 		bank.transfer(acc, accNum, amount);
 	}
 }
