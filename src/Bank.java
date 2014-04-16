@@ -24,7 +24,7 @@ public class Bank {
 					str = s.nextLine().split(" ");
 					int accNum = Integer.parseInt(str[0]);
 					double balance = Double.parseDouble(str[1]);
-					BankAccount acc = new SemaphoreAccount(accNum, balance);
+					BankAccount acc = new SynchronizedAccount(accNum, balance);
 					accounts.put(accNum, acc);
 					users.add(new User(this, acc));
 				}
