@@ -3,34 +3,30 @@ import java.util.concurrent.locks.ReentrantLock;
 
 
 public class ReentrantAccount extends BankAccount {
-	private double balance;
-	private int accountNumber;
-	private Lock lock;
-	
-	public ReentrantAccount() {
-		this.balance = 4000.00;
-		this.balance = 0;
-		lock = new ReentrantLock();
-	}
+	private final Lock lock;
 	
 	public ReentrantAccount(double balance, int accountNumber) {
 		super(accountNumber, balance);
+		lock = new ReentrantLock();
 	}
 	
 	public void deposit(double amount) {
-		balance += amount;
+		lock.lock();
+		try {
+			super.deposit(amount);
+		}
+		finally {
+			lock.unlock();
+		}
 	}
 	
 	public double withdraw(double amount) {
-		if(balance < 0) {
-			return -1;
+		lock.lock();
+		try {
+			return super.withdraw(amount);
 		}
-		else if((balance-amount < 0)) {
-			return -1;
-		}
-		else {
-			balance -= amount;
-			return amount;
+		finally {
+			lock.unlock();
 		}
 	}
 }
