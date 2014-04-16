@@ -5,7 +5,7 @@ import java.util.concurrent.locks.ReentrantLock;
 public class ReentrantAccount extends BankAccount {
 	private final Lock lock;
 	
-	public ReentrantAccount(long balance, int accountNumber) {
+	public ReentrantAccount(int accountNumber, long balance) {
 		super(accountNumber, balance);
 		lock = new ReentrantLock();
 	}

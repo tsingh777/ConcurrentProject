@@ -8,7 +8,7 @@ import java.util.concurrent.Executors;
 public class Simulator {
 
 	public static void main(String[] args) {
-		Bank bank = new Bank(new File("accounts.txt"), 0);
+		Bank bank = new Bank(new File("accounts.txt"), 1);
 		List<User> users = bank.getUsers();
 		ExecutorService executor = Executors.newFixedThreadPool(16);
 		for (User user : users) {

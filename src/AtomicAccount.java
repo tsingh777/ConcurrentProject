@@ -9,19 +9,19 @@ public class AtomicAccount extends BankAccount {
 	}
 	
 	public void deposit(long amount) {
-		balance.getAndAdd((long)amount);
+		balance.getAndAdd(amount);
 	}
 	
 	public long withdraw(long amount) {
-		return super.withdraw(amount);
+		return balance.getAndAdd(-amount);
 	}
 	
 	public long getBalance() {
-		return super.getBalance();
+		return balance.get();
 	}
 
 	public void setbalance(long avalibleAmount) {
-		super.setbalance(avalibleAmount);
+		balance.set(avalibleAmount);
 	}
 
 }

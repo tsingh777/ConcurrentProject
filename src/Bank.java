@@ -34,7 +34,9 @@ public class Bank {
 					str = s.nextLine().split(" ");
 					int accNum = Integer.parseInt(str[0]);
 					long balance = (long)Double.parseDouble(str[1]);
-					// reentrant
+					BankAccount acc = new ReentrantAccount(accNum, balance);
+					accounts.put(accNum, acc);
+					users.add(new User(this, acc));
 				}
 				break;
 			case 2:
@@ -42,7 +44,19 @@ public class Bank {
 					str = s.nextLine().split(" ");
 					int accNum = Integer.parseInt(str[0]);
 					long balance = (long)Double.parseDouble(str[1]);
-					// blocking
+					BankAccount acc = new AtomicAccount(accNum, balance);
+					accounts.put(accNum, acc);
+					users.add(new User(this, acc));
+				}
+				break;
+			case 3:
+				while (s.hasNext()) {
+					str = s.nextLine().split(" ");
+					int accNum = Integer.parseInt(str[0]);
+					long balance = (long)Double.parseDouble(str[1]);
+					BankAccount acc = new SynchronizedAccount(accNum, balance);
+					accounts.put(accNum, acc);
+					users.add(new User(this, acc));
 				}
 				break;
 			default:
