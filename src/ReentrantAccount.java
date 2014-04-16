@@ -29,4 +29,24 @@ public class ReentrantAccount extends BankAccount {
 			lock.unlock();
 		}
 	}
+	
+	public double getBalance() {
+		lock.lock();
+		try {
+			return super.getBalance();
+		}
+		finally {
+			lock.unlock();
+		}
+	}
+
+	public void setbalance(double avalibleAmount) {
+		lock.lock();
+		try {
+			super.setbalance(avalibleAmount);
+		}
+		finally {
+			lock.unlock();
+		}
+	}
 }
