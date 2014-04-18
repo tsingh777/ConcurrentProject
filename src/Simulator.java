@@ -16,7 +16,7 @@ public class Simulator {
 
 		for (int bankType = 0; bankType < 4; bankType++) {
 			System.out.print("bank"+bankType+"\t");
-			for (int actNum = 10000; actNum < 50000; actNum += 5000) {
+			for (int actNum = 10000; actNum <= 50000; actNum += 5000) {
 				long[] time = new long[10];
 				for (int i = 0; i < 10; i++) {
 					Bank bank = new Bank(new File("accounts.txt"), 3);
@@ -53,6 +53,7 @@ public class Simulator {
 //					System.out.println(i + "\t" + time[i]);
 //				}
 			}
+			System.out.print("\n");
 		}
 
 	}
