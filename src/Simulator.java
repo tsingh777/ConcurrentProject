@@ -19,7 +19,7 @@ public class Simulator {
 			for (int actNum = 10000; actNum <= 50000; actNum += 5000) {
 				long[] time = new long[10];
 				for (int i = 0; i < 10; i++) {
-					Bank bank = new Bank(new File("accounts.txt"), 3);
+					Bank bank = new Bank(new File("accounts.txt"), bankType);
 					List<User> users = bank.getUsers();
 					setUserActions(new File("actions"+actNum), users,
 							actNum);
