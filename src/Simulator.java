@@ -43,10 +43,10 @@ public class Simulator {
 //					System.out.println("finished run " + i);
 				}
 				long sum = 0;
-				for (int i = 0; i < time.length; i++) {
+				for (int i = 1; i < time.length; i++) {
 					sum+=time[i];
 				}
-				long avg = sum/10;
+				long avg = sum/9;
 				System.out.print(avg+"\t");
 //				System.out.println("Time profile");
 //				for (int i = 0; i < time.length; i++) {
