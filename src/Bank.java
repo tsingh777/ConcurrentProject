@@ -23,7 +23,7 @@ public class Bank {
 				while (s.hasNext()) {
 					str = s.nextLine().split(" ");
 					int accNum = Integer.parseInt(str[0]);
-					long balance = (long)Double.parseDouble(str[1]);
+					long balance = (long) Double.parseDouble(str[1]);
 					BankAccount acc = new SynchronizedAccount(accNum, balance);
 					accounts.put(accNum, acc);
 					users.add(new User(this, acc));
@@ -33,7 +33,7 @@ public class Bank {
 				while (s.hasNext()) {
 					str = s.nextLine().split(" ");
 					int accNum = Integer.parseInt(str[0]);
-					long balance = (long)Double.parseDouble(str[1]);
+					long balance = (long) Double.parseDouble(str[1]);
 					BankAccount acc = new ReentrantAccount(accNum, balance);
 					accounts.put(accNum, acc);
 					users.add(new User(this, acc));
@@ -43,7 +43,7 @@ public class Bank {
 				while (s.hasNext()) {
 					str = s.nextLine().split(" ");
 					int accNum = Integer.parseInt(str[0]);
-					long balance = (long)Double.parseDouble(str[1]);
+					long balance = (long) Double.parseDouble(str[1]);
 					BankAccount acc = new AtomicAccount(accNum, balance);
 					accounts.put(accNum, acc);
 					users.add(new User(this, acc));
@@ -53,7 +53,7 @@ public class Bank {
 				while (s.hasNext()) {
 					str = s.nextLine().split(" ");
 					int accNum = Integer.parseInt(str[0]);
-					long balance = (long)Double.parseDouble(str[1]);
+					long balance = (long) Double.parseDouble(str[1]);
 					BankAccount acc = new SemaphoreAccount(accNum, balance);
 					accounts.put(accNum, acc);
 					users.add(new User(this, acc));
@@ -92,7 +92,7 @@ public class Bank {
 	}
 
 	public void getBalance(BankAccount acc) {
-		System.out.println((accounts.get(acc.getAccountNumber())).getBalance());
+		accounts.get(acc.getAccountNumber()).getBalance();
 	}
 
 	public void deposit(BankAccount acc, long amount) {

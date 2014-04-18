@@ -1,6 +1,9 @@
+import java.util.List;
+
 public class User implements Runnable {
 	private Bank bank;
 	private BankAccount acc;
+	private List<Action> actions;
 
 	public User(Bank bank, BankAccount acc) {
 		this.bank = bank;
@@ -9,10 +12,26 @@ public class User implements Runnable {
 
 	@Override
 	public void run() {
-		if(acc.getAccountNumber() != 1)
-			transfer(1,1);
-		else
-			withdraw(1);
+		for (Action action : actions) {
+			long amount = action.amount;
+			int accNum = action.transferTo;
+			switch (action.actionCode) {
+			case 0:
+				viewBalance();
+				break;
+			case 1:
+				deposit(amount);
+				break;
+			case 2:
+				withdraw(amount);
+				break;
+			case 3:
+				transfer(accNum, amount);
+				break;
+			default:
+				break;
+			}
+		}
 	}
 
 	public void viewBalance() {
@@ -29,5 +48,13 @@ public class User implements Runnable {
 
 	public void transfer(int accNum, long amount) {
 		bank.transfer(acc, accNum, amount);
+	}
+
+	public void setActions(List<Action> actions) {
+		this.actions = actions;
+	}
+	
+	public BankAccount getAccount(){
+		return this.acc;
 	}
 }
