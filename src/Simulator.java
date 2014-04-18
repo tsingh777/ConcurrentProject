@@ -15,9 +15,9 @@ public class Simulator {
 //		createActions(16, 50000);
 		long[] time = new long[10];
 		for (int i = 0; i < 10; i++) {
-			Bank bank = new Bank(new File("accounts.txt"), 3);
+			Bank bank = new Bank(new File("accounts.txt"), 0);
 			List<User> users = bank.getUsers();
-			setUserActions(new File("user_actions.txt"), users, 100);
+			setUserActions(new File("user_actions_1000.txt"), users, 1000);
 			ExecutorService executor = Executors.newFixedThreadPool(16);
 			long currentTime = System.nanoTime();
 			for (User user : users) {
