@@ -12,35 +12,35 @@ public class Simulator {
 
 	public static void main(String[] args) {
 		// createAccounts(16);
-		// createActions(16, 50000);
-		long[] time = new long[10];
-		for (int i = 0; i < 10; i++) {
-			Bank bank = new Bank(new File("accounts.txt"), 3);
-			List<User> users = bank.getUsers();
-			setUserActions(new File("user_actions.txt"), users, 100);
-			ExecutorService executor = Executors.newFixedThreadPool(16);
-			long currentTime = System.nanoTime();
-			for (User user : users) {
-				executor.execute(user);
-			}
-			executor.shutdown();
-
-			while (!executor.isTerminated()) {
-			}
-			long endTime = System.nanoTime();
-
+		createActions(16, 50000);
+//		long[] time = new long[10];
+//		for (int i = 0; i < 10; i++) {
+//			Bank bank = new Bank(new File("accounts.txt"), 3);
+//			List<User> users = bank.getUsers();
+//			setUserActions(new File("user_actions.txt"), users, 100);
+//			ExecutorService executor = Executors.newFixedThreadPool(16);
+//			long currentTime = System.nanoTime();
 //			for (User user : users) {
-//				System.out.println(user.getAccount().getAccountNumber() + " - "
-//						+ user.getAccount().getBalance());
+//				executor.execute(user);
 //			}
-			time[i] = endTime - currentTime;
-			System.out.println("finished run "+i);
-		}
-
-		System.out.println("Time profile");
-		for (int i = 0; i < time.length; i++) {
-			System.out.println(i+"\t"+time[i]);
-		}
+//			executor.shutdown();
+//
+//			while (!executor.isTerminated()) {
+//			}
+//			long endTime = System.nanoTime();
+//
+////			for (User user : users) {
+////				System.out.println(user.getAccount().getAccountNumber() + " - "
+////						+ user.getAccount().getBalance());
+////			}
+//			time[i] = endTime - currentTime;
+//			System.out.println("finished run "+i);
+//		}
+//
+//		System.out.println("Time profile");
+//		for (int i = 0; i < time.length; i++) {
+//			System.out.println(i+"\t"+time[i]);
+//		}
 
 	}
 
