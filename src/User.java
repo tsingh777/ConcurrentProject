@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.List;
 
 public class User implements Runnable {
@@ -8,6 +9,7 @@ public class User implements Runnable {
 	public User(Bank bank, BankAccount acc) {
 		this.bank = bank;
 		this.acc = acc;
+		this.actions = new ArrayList<Action>();
 	}
 
 	@Override

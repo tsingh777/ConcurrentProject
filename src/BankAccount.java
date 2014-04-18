@@ -24,6 +24,7 @@ public abstract class BankAccount {
 	 */
 	public long withdraw(long amount) {
 		if (amount > balance) {
+			System.out.println("Error");
 			return 0;
 		} else {
 			balance -= amount;
