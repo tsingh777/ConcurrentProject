@@ -16,7 +16,7 @@ public class Simulator {
 		// createAccounts(numUsers);
 		// createActions(numUsers, x);//create x number of random acions for each user. 
 
-		for (int bankType = 0; bankType < 5; bankType++) { //Do the test for each bank account type 0-
+		for (int bankType = 0; bankType < 4; bankType++) { //Do the test for each bank account type 
 			System.out.print("bank"+bankType+"\t");
 			for (int actNum = 10000; actNum <= 50000; actNum += 5000) { // run through the different files containning the actions.
 				long[] time = new long[10];
