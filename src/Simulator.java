@@ -30,7 +30,18 @@ public class Simulator {
 					for (User user : users) {
 						executor.execute(user);		//execute each user
 					}
+					
 					executor.shutdown();
+					
+					while(!executor.isTerminated()){
+//						try{
+//							Thread.sleep(100);
+//						}
+//						catch(InterruptedException e){
+//							e.printStackTrace();
+//						}
+					}
+					
 
 					long endTime = System.nanoTime();
 
