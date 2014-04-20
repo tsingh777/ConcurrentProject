@@ -7,7 +7,7 @@ public class ReentrantAccount extends BankAccount {
 	
 	public ReentrantAccount(int accountNumber, long balance) {
 		super(accountNumber, balance);
-		lock = new ReentrantLock(true);
+		lock = new ReentrantLock();
 	}
 	
 	public void deposit(long amount) {
