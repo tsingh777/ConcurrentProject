@@ -11,39 +11,39 @@ import java.util.concurrent.Executors;
 public class Simulator {
 
 	public static void main(String[] args) {
-		// createAccounts(16);
-		// createActions(16, 50000);
+		// int x= 50000;
+		// int numUsers = 16;
+		// createAccounts(numUsers);
+		// createActions(numUsers, x);//create x number of random acions for each user. 
 
-		for (int bankType = 0; bankType < 4; bankType++) {
+		for (int bankType = 0; bankType < 5; bankType++) { //Do the test for each bank account type 0-
 			System.out.print("bank"+bankType+"\t");
-			for (int actNum = 10000; actNum <= 50000; actNum += 5000) {
+			for (int actNum = 10000; actNum <= 50000; actNum += 5000) { // run through the different files containning the actions.
 				long[] time = new long[10];
-				for (int i = 0; i < 10; i++) {
+				for (int i = 0; i < 10; i++) {	//Do the test 10 times.
 					Bank bank = new Bank(new File("accounts.txt"), bankType);
 					List<User> users = bank.getUsers();
 					setUserActions(new File("actions"+actNum), users,
 							actNum);
-					ExecutorService executor = Executors.newFixedThreadPool(16);
+					ExecutorService executor = Executors.newFixedThreadPool(16);	
 					long currentTime = System.nanoTime();
 					for (User user : users) {
-						executor.execute(user);
+						executor.execute(user);		//execute each user
 					}
 					executor.shutdown();
 
-					while (!executor.isTerminated()) {
-					}
 					long endTime = System.nanoTime();
 
-					// for (User user : users) {
-					// System.out.println(user.getAccount().getAccountNumber() +
-					// " - "
-					// + user.getAccount().getBalance());
-					// }
+//					 for (User user : users) {							//Use this to get the ending balance for each account after each run.
+	//					 System.out.println(user.getAccount().getAccountNumber() +
+	//					 " - "
+	//					 + user.getAccount().getBalance());
+//					 }
 					time[i] = endTime - currentTime;
 //					System.out.println("finished run " + i);
 				}
 				long sum = 0;
-				for (int i = 1; i < time.length; i++) {
+				for (int i = 1; i < time.length; i++) { // add up all the times but drop the first one which is an outlier
 					sum+=time[i];
 				}
 				long avg = sum/9;

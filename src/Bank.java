@@ -59,6 +59,15 @@ public class Bank {
 					users.add(new User(this, acc));
 				}
 				break;
+			case 4:
+				while (s.hasNext()) {
+					str = s.nextLine().split(" ");
+					int accNum = Integer.parseInt(str[0]);
+					long balance = (long) Double.parseDouble(str[1]);
+					BankAccount acc = new ControlAccount(accNum, balance);
+					accounts.put(accNum, acc);
+					users.add(new User(this, acc));
+				}
 			default:
 				break;
 			}
